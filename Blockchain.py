@@ -13,6 +13,7 @@ Menu = '''
     Text [1]
     Photos, Videos or Files [2]
     Show your private data [3]
+    Change Password [4]
     Exit [0]
 '''
 system("clear")
