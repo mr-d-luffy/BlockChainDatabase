@@ -8,12 +8,12 @@ import Blockchain
 import Lock
 
 class BlockchainWithDatabase:
+    Key = input("Enter Your Acess Code --> ")
+    Lock.PasswordChack(Key)
+    
     Loop = True
     while(Loop):
         try:
-            Key = input("Enter Your Acess Code --> ")
-            Lock.PasswordChack(Key)
-
             MenuNumber = int(input("{Silect Number} --> "))
         except(Exception):
             print(Fore.RED, "Enter Valid Integer Value", Fore.WHITE)
@@ -77,6 +77,10 @@ class BlockchainWithDatabase:
             except(Exception) as e:
                 print(Fore.RED, "Enter Valid Integer Value", Fore.WHITE)
                 print(e)
+
+        elif MenuNumber == 4:
+            NewPassword = input("Enter Your New Password ----> ")
+            Lock.ChangePasswd(NewPassword)
 
         elif MenuNumber == 0:
             Loop = False
