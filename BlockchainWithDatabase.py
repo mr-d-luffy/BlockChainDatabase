@@ -9,7 +9,7 @@ import Lock
 
 class BlockchainWithDatabase:
     Key = input("Enter Your Acess Code --> ")
-    Lock.PasswordChack(Key)
+    Lock.PasswordCheck(Key)
     
     Loop = True
     while(Loop):
