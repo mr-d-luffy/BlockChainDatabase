@@ -1,5 +1,5 @@
 
-def PasswordChack(Key):
+def PasswordCheck(Key):
     with open("passwd.key", 'r') as File:
         Passwd = File.read()
         if Key == Passwd:
