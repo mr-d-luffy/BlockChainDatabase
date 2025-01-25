@@ -26,7 +26,7 @@ def HashGeneretor(data):
 
 # Save Data In BLockchain Database
 
-def BlockchainDatabase(SetNumber, CorrentDateTime, Data, Hash, PrivusHash):
+def BlockchainDatabase(SetNumber, CorrentDateTime, Data, Hash, PreviousHash):
     Connection = sqlite3.connect("database/blockchain.db")
     Connect = Connection.cursor()
  
@@ -38,9 +38,9 @@ def BlockchainDatabase(SetNumber, CorrentDateTime, Data, Hash, PrivusHash):
     # )''')
  
     if SetNumber == 1:
-        Connect.execute(f"INSERT INTO BlockchainTextDatabase(CorrentTime, Data, Hash, PrivusHash) VALUES(?,?,?,?);", (CorrentDateTime, Data, Hash, PrivusHash))
+        Connect.execute(f"INSERT INTO BlockchainTextDatabase(CorrentTime, Data, Hash, PrivusHash) VALUES(?,?,?,?);", (CorrentDateTime, Data, Hash, PreviousHash))
     elif SetNumber == 2:
-        Connect.execute(f"INSERT INTO BlockchainImageDatabase(CorrentTime, Data, Hash, PrivusHash) VALUES(?,?,?,?);", (CorrentDateTime, Data, Hash, PrivusHash))
+        Connect.execute(f"INSERT INTO BlockchainImageDatabase(CorrentTime, Data, Hash, PrivusHash) VALUES(?,?,?,?);", (CorrentDateTime, Data, Hash, PreviousHash))
 
     Connection.commit()
     Connection.close()
