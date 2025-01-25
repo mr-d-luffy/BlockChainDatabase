@@ -28,6 +28,7 @@ class BlockchainWithDatabase:
             try:
                 with open("LocalOne.txt", 'r') as File:
                     PreviousHash = File.read()
+                    File.close()
             except(Exception):
                 pass
         
@@ -36,6 +37,7 @@ class BlockchainWithDatabase:
             try:
                 with open("LocalOne.txt", 'w') as File:
                     File.write(EncryptedText)
+                    File.close()
             except(Exception):
                 pass
 
@@ -47,11 +49,13 @@ class BlockchainWithDatabase:
             try:
                 with open(f"{ImagePath}", "rb") as File:
                     ReadImageData = File.read()
+                    File.close()
                 EncryptedImage = Blockchain.HashGeneretor(str(ReadImageData))
         
                 try:
                     with open("LocalTwo.txt", 'r') as File:
                         PreviousHash = File.read()
+                        File.close()
                 except(Exception):
                     pass
                 
@@ -60,6 +64,7 @@ class BlockchainWithDatabase:
                 try:
                     with open("LocalTwo.txt", 'w') as File:
                         File.write(EncryptedImage)
+                        File.close()
                 except(Exception):
                     pass
                 
