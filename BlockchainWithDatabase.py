@@ -19,7 +19,7 @@ class BlockchainWithDatabase:
             print(Fore.RED, "Enter Valid Integer Value", Fore.WHITE)
 
         CorrentDateTime = str(datetime.date.today())
-        PrivusHash = "No PrivusHash"
+        PreviousHash = "No PreviousHash"
 
         if MenuNumber == 1:
             TextData = input("Input Text Data --> ")
@@ -27,11 +27,11 @@ class BlockchainWithDatabase:
 
             try:
                 with open("LocalOne.txt", 'r') as File:
-                    PrivusHash = File.read()
+                    PreviousHash = File.read()
             except(Exception):
                 pass
         
-            Blockchain.BlockchainDatabase(MenuNumber, CorrentDateTime, TextData, EncryptedText, PrivusHash)
+            Blockchain.BlockchainDatabase(MenuNumber, CorrentDateTime, TextData, EncryptedText, PreviousHash)
 
             try:
                 with open("LocalOne.txt", 'w') as File:
@@ -51,11 +51,11 @@ class BlockchainWithDatabase:
         
                 try:
                     with open("LocalTwo.txt", 'r') as File:
-                        PrivusHash = File.read()
+                        PreviousHash = File.read()
                 except(Exception):
                     pass
                 
-                Blockchain.BlockchainDatabase(MenuNumber, CorrentDateTime, ReadImageData, EncryptedImage, PrivusHash)
+                Blockchain.BlockchainDatabase(MenuNumber, CorrentDateTime, ReadImageData, EncryptedImage, PreviousHash)
         
                 try:
                     with open("LocalTwo.txt", 'w') as File:
